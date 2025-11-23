@@ -11,7 +11,6 @@ interface HeroStat {
 
 
 export default function Hero({ data }: any) {
-  console.log(JSON.stringify(data, null, 2))
   return (
     <>
       {/* Hero Section */}

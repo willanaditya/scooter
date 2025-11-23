@@ -1,7 +1,9 @@
 import Image from 'next/image'
 import React from 'react'
+import { urlFor } from "@/sanity/lib/image"
 
 const ProductInformation = ({ data }: any) => {
+
   return (
     <div><section className="py-24 bg-gray-50">
       <div className="container mx-auto px-6">
@@ -15,8 +17,9 @@ const ProductInformation = ({ data }: any) => {
         <div className="grid lg:grid-cols-2 gap-16 items-center max-w-7xl mx-auto">
           {/* Left Image */}
           <div className="relative">
+            //
             <Image
-              src="/logo.svg"
+              src={urlFor(data.image).url()}
               alt="Electric Scooter Side View"
               width={600}
               height={500}
@@ -28,17 +31,8 @@ const ProductInformation = ({ data }: any) => {
           <div className="space-y-8">
 
 
-            <ul className="space-y-6">
-              {[
-                "Advanced electric powertrain – silent & powerful",
-                "Ultra-fast charging technology",
-                "Premium aluminum frame",
-                "Smart connectivity & app control",
-                "IP67 water & dust resistance",
-                "Regenerative braking system",
-                "LED ambient lighting",
-                "Anti-theft GPS tracking",
-              ].map((feature, i) => (
+            <ul className="space-y-6 ml-6">
+              {data?.features?.map((feature: string, i: number) => (
                 <li key={i} className="flex items-center gap-4">
                   <Image
                     src="/Vector.svg"
