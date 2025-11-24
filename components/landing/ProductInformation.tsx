@@ -1,5 +1,4 @@
 import Image from 'next/image'
-import React from 'react'
 import { urlFor } from "@/sanity/lib/image"
 
 const ProductInformation = ({ data }: any) => {
